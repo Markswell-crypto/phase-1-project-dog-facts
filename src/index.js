@@ -1,22 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const dogBreed = document.getElementById('list');
+    const breedList = document.getElementById('breedList');
     
-// Function to fetch movie data from the server
-    function fetchDogBreed() {
-        fetch('https://dogapi.dog/api/v2/breeds')
+    // Function to fetch dog breed data from the server
+    function fetchDogBreeds() {
+        fetch('https://dog.ceo/api/breeds/list/all')
             .then(response => response.json())
-            .then(dog => {
-                dogs.forEach(dog => {
-                    const dogName = document.createElement('li');
-                    dogName.textContent = dog.type.name;
-                    dogName.classList.add('film', 'item');
-                    movieItem.setAttribute('data-movie-id', movie.id);
-                    .appendChild(dogName);
-
-                    movieItem.addEventListener('click', (e) => {
-                        e.preventDefault()
-                        displayMovieDetails(movie);
-                    });
+            .then(data => {
+                const breeds = Object.keys(data.message); // Extract breed names
+                
+                // Display each breed in the list
+                breeds.forEach(breed => {
+                    const breedItem = document.createElement('li');
+                    breedItem.textContent = breed;
+                    breedList.appendChild(breedItem);
                 });
- })
-})
+            })
+            .catch(error => {
+                console.error('Error fetching dog breeds:', error);
+            });
+    }
+
+    // Fetch dog breeds and initialize the page
+    fetchDogBreeds();
+});
