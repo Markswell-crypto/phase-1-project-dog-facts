@@ -107,12 +107,94 @@ subscribeButton.addEventListener('click', () => {
         console.error('Error:', error);
         alert('An error occurred while subscribing. Please try again later.');
     });
-
     // Clear the email input field
     emailInput.value = '';
 });
 
-        
+const commentInput = document.getElementById('comment-input');
+    const commentList = document.getElementById('comment-list');
+    const commentSubmitButton = document.getElementById('comment-submit');
+
+    // Function to create a new comment element
+    function createCommentElement(text) {
+        const commentElement = document.createElement('div');
+        commentElement.classList.add('comment');
+
+        const commentText = document.createElement('p');
+        commentText.textContent = text;
+
+        const actionsDiv = document.createElement('div');
+        actionsDiv.classList.add('actions');
+
+        const thumbsUpIcon = document.createElement('i');
+        thumbsUpIcon.classList.add('fas', 'fa-thumbs-up');
+        thumbsUpIcon.addEventListener('click', () => {
+            // Implement your upvote logic here
+            // You can increase the upvote count and update the UI
+        });
+
+        const thumbsDownIcon = document.createElement('i');
+        thumbsDownIcon.classList.add('fas', 'fa-thumbs-down');
+        thumbsDownIcon.addEventListener('click', () => {
+            // Implement your downvote logic here
+            // You can increase the downvote count and update the UI
+        });
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('edit-button');
+        editButton.addEventListener('click', () => {
+            // Implement your edit comment logic here
+            // You can show/hide the edit input field and populate it with the comment text
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', () => {
+            // Implement your delete comment logic here
+            // You can remove the comment element from the UI
+        });
+
+        const editInput = document.createElement('input');
+        editInput.classList.add('edit-input', 'hidden');
+        editInput.setAttribute('type', 'text');
+        editInput.setAttribute('placeholder', 'Edit your comment...');
+        editInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                // Implement your save edited comment logic here
+                // You can update the comment text with the new value
+            }
+        });
+
+        actionsDiv.appendChild(thumbsUpIcon);
+        actionsDiv.appendChild(thumbsDownIcon);
+        actionsDiv.appendChild(editButton);
+        actionsDiv.appendChild(deleteButton);
+        commentElement.appendChild(commentText);
+        commentElement.appendChild(actionsDiv);
+        commentElement.appendChild(editInput);
+
+        return commentElement;
+    }
+
+    // Function to handle comment submission
+    function submitComment() {
+        const commentText = commentInput.value.trim();
+
+        if (commentText !== '') {
+            const commentElement = createCommentElement(commentText);
+            commentList.appendChild(commentElement);
+            commentInput.value = '';
+        }
+    }
+
+    // Event listener for submitting a comment
+    commentSubmitButton.addEventListener('click', submitComment);
+    commentInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            submitComment();
+        }
+    });        
     
     // Fetch dog breeds and initialize the page
     fetchDogBreeds();
