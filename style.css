@@ -1,60 +1,55 @@
 /* Reset some default browser styles */
-body, h1, h3 {
-    background-color: rgb(148, 195, 249);
-    margin: 0;
-    padding: 0;
+body {
+    background-image: url('./assets/rough.jpeg');
 }
 
 /* Style the header */
 #header {
-    
     color: rgb(234, 35, 35);
     text-align: center;
     padding: 20px 0;
 }
-h1{
+
+h1 {
     font-family: cursive;
     font-weight: 1000;
 }
-h3{
+
+h3 {
     font-family: cursive;
     font-style: italic;
 }
 
 /* Style the middle section container */
 #middlesection {
-/* Use flexbox to arrange sections side by side */
-    display: flex; 
-/* Distribute space evenly between sections */
-    justify-content: space-between; 
-/* Align sections at the top */
+    display: flex;
+    justify-content: space-between;
     align-items: flex-start;
-    background-color: bisque;
+    background-color: transparent;
     height: fit-content;
     margin-left: 2%;
     margin-right: 1%;
     margin-bottom: 1%;
 }
-#displayfact{
-    justify-content:end;
+
+#displayfact {
+    justify-content: end;
     margin: 5%;
     font-size: 16px;
     font-weight: 500;
     font-family: monospace;
     border-top: #333;
 }
+
 /* Style the list section */
 #list {
-/* Take up 30% of available width */
-    width: max-content; 
-    background-color: #f2f2f2;
+    /* Take up 30% of available width */
+    width: max-content;
+    background-color: transparent;
     padding: 20px;
-    border: 2px solid #333;
     margin: auto;
     text-align: center;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    font-style: inherit;    
+    margin-top: 10%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
 }
@@ -62,24 +57,13 @@ h3{
 /* Style the middle section */
 #middle {
     margin: auto;
-    flex-basis: 60%; 
-    background-color: #b0f9f8;
+    flex-basis: 60%;
+    background-color: transparent;
     padding: 20px;
     text-align: center;
-
 }
 
-/* Style the comments section */
-#comments {
-    margin-bottom: 1%;
-    margin-top: 1%;
-    flex-basis: 30%; 
-    background-color: #f2f2f2;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
-span{
+span {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 25px;
     font-style: italic;
@@ -95,7 +79,7 @@ footer {
     background-color: #333;
     color: white;
 }
-/* styles.css */
+
 #subscribe {
     text-align: center;
     padding: 20px;
@@ -122,9 +106,15 @@ footer {
         padding: 8px 16px;
     }
 }
+
 /* Style for comments */
 #comments {
+    margin-bottom: 1%;
     margin-top: 20px;
+    flex-basis: 30%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ddd;
 }
 
 #comment-form {
