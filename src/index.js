@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedBreedData) {
             const breedAttributes = selectedBreedData.attributes;
             displayFact.innerHTML = `
-                <h2 id="title">Breed: ${breedAttributes.name}</h2>
+                <h2 id="title">${breedAttributes.name}</h2>
                 <p id="description">Description: ${breedAttributes.description}</p>
                 <p id="maxage"> Maximum age: ${breedAttributes.life.max} years</p>
                 <p id="minage"> Minimum age: ${breedAttributes.life.min} years</p>
