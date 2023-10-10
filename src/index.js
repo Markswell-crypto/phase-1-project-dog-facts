@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayFact = document.getElementById('displayfact');
     // Store the selected breed item
     let selectedBreedItem = null;
-     
+    // Store the fetched breeds data 
     let breedsData = null; 
 
     // Function to fetch dog breed data from the server
