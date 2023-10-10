@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const breedList = document.getElementById('breedList');
     const displayFact = document.getElementById('displayfact');
+    let selectedBreedItem = null; // Store the selected breed item
     
     // Function to fetch dog breed data from the server
     function fetchDogBreeds() {
@@ -11,17 +12,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Display each breed in the list
                 breeds.forEach(breed => {
-                    const breedItem = document.createElement('li');
+                    const breedItem = document.createElement('ul');
                     breedItem.textContent = breed;
                     breedList.appendChild(breedItem);
 
+                    // Add a mouse hover effect
+                    breedItem.addEventListener('mouseenter', () => {
+                        breedItem.style.backgroundColor = 'lightgray';
+                    });
+
+                    // Remove the mouse hover effect
+                    breedItem.addEventListener('mouseleave', () => {
+                        if (breedItem !== selectedBreedItem) {
+                            breedItem.style.backgroundColor = 'transparent';
+                        }
+                    });
+
                     // Add a click event listener to each breed item
                     breedItem.addEventListener('click', () => {
-                        // Get the breed name when clicked
-                        const selectedBreed = breedItem.textContent;
+                        // Remove the mouse hover effect from previously selected breed item
+                        if (selectedBreedItem !== null) {
+                            selectedBreedItem.style.backgroundColor = 'transparent';
+                        }
                         
-                        // Call a function to display dog facts
-                        displayDogFacts(selectedBreed);
+                        // Get the breed name when clicked
+                        let selectedBreed = breedItem.textContent;
+                        
+                        // Store the selected breed item
+                        selectedBreedItem = breedItem;
+                        
+                        // Change the color of the selected breed item
+                        breedItem.style.backgroundColor = 'lightblue';
+                        
+                        // Call a function to fetch and display dog facts
+                        fetchBreedDescription(selectedBreed);
                     });
                 });
             })
@@ -30,22 +54,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // Function to display dog facts
-    function displayDogFacts(breed) {
-        // You can fetch dog facts for the selected breed here or use predefined data
-        // For this example, I'll use predefined data
-        const dogFacts = {
-            'Breed 1': 'Description for Breed 1',
-            'Breed 2': 'Description for Breed 2',
-            // Add more breeds and descriptions as needed
-        };
+   // Function to fetch breed description and image
+   function fetchBreedDescription(breed) {
+    fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+        .then(response => response.json())
+        .then(data => {
+            const imageUrl = data.message;
 
-        // Display the selected breed's fact in the displayfact div
-        displayFact.innerHTML = `
+            // Fetch additional dog facts or description from another source
+            // For now, let's assume you have a dogFacts object with descriptions
+            const dogFacts = {
+                // Define descriptions for different breeds
+                'breed1': 'Description for breed 1',
+                'breed2': 'Description for breed 2',
+                // Add descriptions for other breeds here
+            };
+
+            // Display the breed image and description
+            displayFact.innerHTML = `
+            <img src="${imageUrl}" alt="${breed}">
             <h2 id="title">BREED: ${breed}</h2>
             <p id="description">Description: ${dogFacts[breed]}</p>
-        `;
-    }
+            `;
+        })
+        .catch(error => {
+            console.error('Error fetching breed description:', error);
+        });
+}
 
     // Fetch dog breeds and initialize the page
     fetchDogBreeds();
