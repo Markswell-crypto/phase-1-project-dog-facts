@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const breedList = document.getElementById('breedList');
     const displayFact = document.getElementById('displayfact');
+
     // Store the selected breed item
     let selectedBreedItem = null;
     // Store the fetched breeds data 
@@ -76,8 +77,43 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.error('Breed not found in the stored data.');
         }
+    } 
+        // Add an event listener to the Subscribe button
+        const subscribeButton = document.getElementById('subscribeButton');
+subscribeButton.addEventListener('click', () => {
+    // Get the email input value
+    const emailInput = document.getElementById('emailInput');
+    const userEmail = emailInput.value;
+    // Make sure the email input is not empty
+    if (!userEmail) {
+        alert('Please enter your email.');
+        return;
     }
+    // Create a JSON object with the email
+    const emailData = { email: userEmail };
+    // Send a POST request to store the email in db.json
+    fetch("http://localhost:3000/emails", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+    })
+    .then(response => response.json())
+    .then(message =>{
+      alert('Thank You For Subscribing!')  
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while subscribing. Please try again later.');
+    });
 
+    // Clear the email input field
+    emailInput.value = '';
+});
+
+        
+    
     // Fetch dog breeds and initialize the page
     fetchDogBreeds();
 });
