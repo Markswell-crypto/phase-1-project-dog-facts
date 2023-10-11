@@ -3,8 +3,20 @@
     {
       "email": "nyamburamary1212@gmail.com",
       "id": 1
+    },
+    {
+      "email": "myemail@gmail.com",
+      "id": 2
     }
   ],
-  
-  "comments":[]
+  "comments": [
+    {
+      "text": "I like the caucasian fact!",
+      "id": 1
+    },
+    {
+      "text": "Am new!",
+      "id": 3
+    }
+  ]
 }
