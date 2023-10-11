@@ -1,6 +1,7 @@
 //Ensuring the script loads after the HTML has successfully been displayed
 document.addEventListener('DOMContentLoaded', (e) => {
     e.preventDefault()
+    
     // Getting elements by their ID
     const breedList = document.getElementById('breedList');
     const displayFact = document.getElementById('displayfact');
@@ -69,7 +70,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
     }
 
     // Subscribe button event listener
-    subscribeButton.addEventListener('click', () => {
+    subscribeButton.classList.add('btn', 'btn-primary');
+    subscribeButton.addEventListener('click', (e) => {
         e.preventDefault()
         const emailInput = document.getElementById('emailInput');
         const userEmail = emailInput.value;
@@ -185,7 +187,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
     }
 
     // Event listener for submitting a comment
+    commentSubmitButton.classList.add('btn', 'btn-primary');
     commentSubmitButton.addEventListener('click', (e) => {
+        
         e.preventDefault()
         const commentText = commentInput.value.trim();
         if (commentText !== '') {
