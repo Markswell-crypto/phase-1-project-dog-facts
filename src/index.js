@@ -136,33 +136,29 @@ subscribeButton.addEventListener('click', () => {
         
         const thumbsUpIcon = document.createElement('i');
         thumbsUpIcon.classList.add('fas', 'fa-thumbs-up');
-        thumbsUpIcon.addEventListener('click', (e) => {
-            e.preventDefault()
+        thumbsUpIcon.addEventListener('click', () => {
             upvoteCount++;
             upvoteCountDisplay.textContent = `Upvotes: ${upvoteCount}`;
         });
 
         const thumbsDownIcon = document.createElement('i');
         thumbsDownIcon.classList.add('fas', 'fa-thumbs-down');
-        thumbsDownIcon.addEventListener('click', (e) => {
-            e.preventDefault()
+        thumbsDownIcon.addEventListener('click', () => {
             downvoteCount++;
-            downvoteCountDisplay.textContent = `Downvotes: ${downvoteCount}`;
+        downvoteCountDisplay.textContent = `Downvotes: ${downvoteCount}`;
         });
 
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
         editButton.classList.add('edit-button');
-        editButton.addEventListener('click', (event) => {
-            event.preventDefault()
+        editButton.addEventListener('click', () => {
             editInput.classList.remove('hidden');
             editInput.value = commentText.textContent;
         });
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', (e) => {
-            e.preventDefault()
+        deleteButton.addEventListener('click', () => {
             commentElement.remove();
         });
 
@@ -204,7 +200,6 @@ subscribeButton.addEventListener('click', () => {
     // Event listener for submitting a comment
     commentSubmitButton.addEventListener('click', submitComment);
     commentInput.addEventListener('keydown', (event) => {
-        event.preventDefault()
         if (event.key === 'Enter') {
             submitComment();
         }

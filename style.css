@@ -148,10 +148,11 @@ footer {
 
 /* Edit and delete buttons */
 .comment .actions button {
-    background-color: transparent;
+    background-color: lightgray;
     border: none;
     cursor: pointer;
     color: red;
+    border-radius: 1em;
 }
 
 .comment .actions button.edit-button {
@@ -168,4 +169,11 @@ footer {
 /* Hide edit input field initially */
 .comment .edit-input.hidden {
     display: none;
+}
+#comment-submit{
+    background-color: rgb(69, 133, 237);
+    cursor: pointer;
+    color: rgb(31, 4, 4);
+    border-radius: 1em;  
+    width: 30%;
 }
