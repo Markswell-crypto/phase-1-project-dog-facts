@@ -6,83 +6,73 @@ DOG FACTS is a simple web application that provides interesting facts about diff
 
 ## Sample video
 
-## Table of Contents
-Features
-Prerequisites
-Getting Started
-Usage
-APIs Used
-Folder Structure
-Contributing
-License
+<!-- TOC -->
 
 ### Features
-View a list of dog breeds.
-Select a breed to view facts about it.
-Subscribe to a weekly newsletter.
-Leave comments and engage with other users.
-Edit or delete your comments.
+1. View a list of dog breeds.
+2. Select a breed to view facts about it.
+3. ubscribe to a weekly newsletter.
+4. Leave comments and engage with other users.
+5. Edit or delete your comments.
+6. Store comments and emails in JSON file.
+
+## Technology used
+1. HTML
+2. CSS
+3. Javascript
+4. Bootstrap
+5. JSON    
 
 ### Prerequisites
 Before you begin, ensure you have met the following requirements:
 
-Web Browser: You can access the application using any modern web browser.
-Internet Connection: The application fetches data from the internet.
+**Web Browser**
+You can access the application using any modern web browser.
+
+**Internet Connection** 
+The application fetches data from the internet.
 
 ### Getting Started
 To get a local copy up and running, follow these simple steps:
 
-Clone the repository:
+**Clone the repository**
 
-bash
-Copy code
-git clone https://github.com/yourusername/DOG-FACTS.git
+git clone https://github.com/Markswell-crypto/phase-1-project-dog-facts.git
+
 Open index.html in your web browser.
 
 ### Usage
-Select a Breed: Click on a breed in the list on the left side of the page.
+1 Select a Breed: Click on a breed in the list on the left side of the page.
 
-View Facts: Once you select a breed, the application will display facts about the selected breed in the middle section of the page.
+2 View Facts: Once you select a breed, the application will display facts about the selected breed in the middle section of the page.
 
-Subscribe: In the subscription section, enter your email and click the "Subscribe" button to receive weekly newsletters.
+4 Subscribe: In the subscription section, enter your email and click the "Subscribe" button to receive weekly newsletters.
 
-Comments: Leave comments in the comment section. You can also edit or delete your comments.
+5 Comments: Leave comments in the comment section. You can also edit or delete your comments.
 
 ### APIs Used
-This project uses the following APIs:
+This project uses a public API 
 
-Dog API: Fetches data about dog breeds.
+https://dogapi.dog/api/v2/breeds?page[number]=1
 
-### Folder Structure
-The project's folder structure is as follows:
-
-css
-Copy code
-DOG-FACTS/
-│
-├── assets/
-│   ├── rough.jpeg
-│
-├── src/
-│   ├── index.js
-│
-├── README.md
-│
-├── index.html
-│
-├── style.css
 
 ### Contributing
-Contributions are what make the open source community a fantastic place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+Any contributions you make are greatly appreciated.
 
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
 
 ### License
-This project is distributed under the [Your License Name] License. See LICENSE for more information.
+This app is licensed under the MIT License.
+Copyright (c) 2023 Markswell Osoro Ogutu
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Contact
-Markswell-Crypto - osoromarkswell80@gmail.com - 
+Markswell-Crypto - osoromarkswell80@gmail.com 
+
+
