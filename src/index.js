@@ -25,15 +25,18 @@ document.addEventListener('DOMContentLoaded', (e) => {
                     breedList.appendChild(breedItem);
 
                     // Event listeners for mouse hover and click
-                    breedItem.addEventListener('mouseenter', () => {
+                    breedItem.addEventListener('mouseenter', (e) => {
+                        e.preventDefault()
                         breedItem.style.backgroundColor = 'lightgray';
                     });
-                    breedItem.addEventListener('mouseleave', () => {
+                    breedItem.addEventListener('mouseleave', (e) => {
+                        e.preventDefault()
                         if (breedItem !== selectedBreedItem) {
                             breedItem.style.backgroundColor = 'transparent';
                         }
                     });
-                    breedItem.addEventListener('click', () => {
+                    breedItem.addEventListener('click', (e) => {
+                        e.preventDefault()
                         if (selectedBreedItem !== null) {
                             selectedBreedItem.style.backgroundColor = 'transparent';
                         }
@@ -68,6 +71,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     // Subscribe button event listener
     subscribeButton.addEventListener('click', () => {
+        e.preventDefault()
         const emailInput = document.getElementById('emailInput');
         const userEmail = emailInput.value;
         if (!userEmail) {
@@ -107,10 +111,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
         editButton.classList.add('edit-button');
-        editButton.addEventListener('click', () => {
+        editButton.addEventListener('click', (e) => {
+            e.preventDefault()
             editInput.classList.remove('hidden');
             editInput.value = commentData.text;
             editInput.addEventListener('keydown', (event) => {
+                event.preventDefault()
                 if (event.key === 'Enter') {
                     event.preventDefault();
                     const editedText = editInput.value;
@@ -137,7 +143,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', () => {
+        deleteButton.addEventListener('click', (e) => {
+            e.preventDefault()
             commentElement.remove();
             const commentId = commentData.id;
             fetch(`http://localhost:3000/comments/${commentId}`, {
@@ -180,7 +187,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
     }
 
     // Event listener for submitting a comment
-    commentSubmitButton.addEventListener('click', () => {
+    commentSubmitButton.addEventListener('click', (e) => {
+        e.preventDefault()
         const commentText = commentInput.value.trim();
         if (commentText !== '') {
             fetch('http://localhost:3000/comments', {
