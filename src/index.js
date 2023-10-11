@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
             editInput.addEventListener('keydown', (event) => {
                 event.preventDefault()
                 if (event.key === 'Enter') {
-                    event.preventDefault();
                     const editedText = editInput.value;
                     const commentId = commentData.id;
                     fetch(`http://localhost:3000/comments/${commentId}`, {
