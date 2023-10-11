@@ -1,3 +1,4 @@
+//Ensuring the script loads after the HTML has successfully been displayed
 document.addEventListener('DOMContentLoaded', (e) => {
     e.preventDefault()
     // Getting elements by their ID
@@ -7,12 +8,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const commentInput = document.getElementById('comment-input');
     const commentList = document.getElementById('comment-list');
     const commentSubmitButton = document.getElementById('comment-submit');
-
     // Initialize selected breed item and fetched breeds data
     let selectedBreedItem = null;
     let breedsData = null;
-
-    // Fetch dog breeds from the server
+    // using fetch to GET the dog breeds from the public API
     function fetchDogBreeds() {
         fetch('https://dogapi.dog/api/v2/breeds?page[number]=1')
             .then(response => response.json())
