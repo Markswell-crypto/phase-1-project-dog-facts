@@ -114,8 +114,6 @@ subscribeButton.addEventListener('click', () => {
     const commentInput = document.getElementById('comment-input');
     const commentList = document.getElementById('comment-list');
     const commentSubmitButton = document.getElementById('comment-submit');
-    let upvoteCount = 0;
-    let downvoteCount = 0;
 
     // Function to create a new comment element
     function createCommentElement(text) {
@@ -125,29 +123,7 @@ subscribeButton.addEventListener('click', () => {
         const commentText = document.createElement('p');
         commentText.textContent = text;
 
-        const upvoteCountDisplay = document.createElement('p');
-        upvoteCountDisplay.textContent = `Upvotes: ${upvoteCount}`;
-
-        const downvoteCountDisplay = document.createElement('p');
-        downvoteCountDisplay.textContent = `Downvotes: ${downvoteCount}`;
-
-        const actionsDiv = document.createElement('div');
-        actionsDiv.classList.add('actions');
         
-        const thumbsUpIcon = document.createElement('i');
-        thumbsUpIcon.classList.add('fas', 'fa-thumbs-up');
-        thumbsUpIcon.addEventListener('click', () => {
-            upvoteCount++;
-            upvoteCountDisplay.textContent = `Upvotes: ${upvoteCount}`;
-        });
-
-        const thumbsDownIcon = document.createElement('i');
-        thumbsDownIcon.classList.add('fas', 'fa-thumbs-down');
-        thumbsDownIcon.addEventListener('click', () => {
-            downvoteCount++;
-        downvoteCountDisplay.textContent = `Downvotes: ${downvoteCount}`;
-        });
-
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
         editButton.classList.add('edit-button');
@@ -175,12 +151,9 @@ subscribeButton.addEventListener('click', () => {
             }
         });
 
-        actionsDiv.appendChild(thumbsUpIcon);
-        actionsDiv.appendChild(thumbsDownIcon);
         actionsDiv.appendChild(editButton);
         actionsDiv.appendChild(deleteButton);
         commentElement.appendChild(commentText);
-        commentElement.appendChild(actionsDiv);
         commentElement.appendChild(editInput);
 
         return commentElement;
