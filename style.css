@@ -136,12 +136,6 @@ footer {
     justify-content: space-between;
 }
 
-/* Thumbs up and thumbs down icons */
-.comment .actions i {
-    cursor: pointer;
-    margin-right: 10px;
-}
-
 /* Edit and delete buttons */
 .comment .actions button {
     background-color: lightgray;

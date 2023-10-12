@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
                     breedItem.textContent = breedData.attributes.name;
                     breedList.appendChild(breedItem);
 
-                    // Event listeners for mouse hover and click
+                    // Event listeners for mouse hover
                     breedItem.addEventListener('mouseenter', (e) => {
                         e.preventDefault()
                         breedItem.style.backgroundColor = 'lightgray';
@@ -35,23 +35,27 @@ document.addEventListener('DOMContentLoaded', (e) => {
                             breedItem.style.backgroundColor = 'transparent';
                         }
                     });
+                    //Event listener for clicking a certain breed
                     breedItem.addEventListener('click', (e) => {
                         e.preventDefault()
                         if (selectedBreedItem !== null) {
                             selectedBreedItem.style.backgroundColor = 'transparent';
                         }
+                        //Adding a style color to the clicked breed
                         selectedBreedItem = breedItem;
                         breedItem.style.backgroundColor = 'lightblue';
+                        //Invoke the fetchBreedDescription to display facts for a selected breed
                         fetchBreedDescription(breedData.attributes.name);
                     });
                 });
             })
+            //When the fetch is not successful from the server, this is displayed.
             .catch(error => {
                 console.error('Error fetching dog breeds:', error);
             });
     }
 
-    // Fetch and display breed description
+    // Function to Fetch and display breed facts
     function fetchBreedDescription(selectedBreedName) {
         const selectedBreedData = breedsData.find(breedData => breedData.attributes.name === selectedBreedName);
         if (selectedBreedData) {
@@ -68,9 +72,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
             console.error('Breed not found in the stored data.');
         }
     }
-
-    // Subscribe button event listener
+    //Adding a classlist to the subscribe button
     subscribeButton.classList.add('btn', 'btn-primary');
+    // Subscribe button event listener
     subscribeButton.addEventListener('click', (e) => {
         e.preventDefault()
         const emailInput = document.getElementById('emailInput');
@@ -95,6 +99,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
             console.error('Error:', error);
             alert('An error occurred while subscribing. Please try again later.');
         });
+        //clears input box
         emailInput.value = '';
     });
 
@@ -112,6 +117,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
         editButton.classList.add('edit-button');
+        //Edit comment actions
         editButton.addEventListener('click', (e) => {
             e.preventDefault()
             editInput.classList.remove('hidden');
@@ -130,7 +136,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Handle the response from the server if needed
                     })
                     .catch(error => {
                         console.error('Error:', error);
@@ -140,7 +145,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 }
             });
         });
-
+        //Delete button actions
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', (e) => {
@@ -151,7 +156,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 method: 'DELETE',
             })
             .then(response => {
-                // Handle the response from the server if needed
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -162,7 +166,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
         editInput.classList.add('edit-input', 'hidden');
         editInput.setAttribute('type', 'text');
         editInput.setAttribute('placeholder', 'Edit your comment');
-        
+       
+        //Adding the items to the elements
         actionsDiv.appendChild(editButton);
         actionsDiv.appendChild(deleteButton);
         commentElement.appendChild(commentText);
@@ -191,6 +196,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     commentSubmitButton.addEventListener('click', (e) => {
         
         e.preventDefault()
+        //I used trim() to remove whitespace characters from the beginning and end of a string 
         const commentText = commentInput.value.trim();
         if (commentText !== '') {
             fetch('http://localhost:3000/comments', {
