@@ -4,15 +4,11 @@ A project on random dog-facts you never knew existed and some that you know.
 # DOG FACTS
 DOG FACTS is a simple web application that provides interesting facts about different dog breeds. It allows users to select a breed from a list, view facts about that breed, subscribe to a newsletter, and leave comments.
 
-## Sample video
-
-<!-- TOC -->
-
 ### Features
 1. View a list of dog breeds.
 2. Select a breed to view facts about it.
-3. ubscribe to a weekly newsletter.
-4. Leave comments and engage with other users.
+3. subscribe to a weekly newsletter.
+4. Leave comments.
 5. Edit or delete your comments.
 6. Store comments and emails in JSON file.
 
@@ -41,6 +37,12 @@ git clone https://github.com/Markswell-crypto/phase-1-project-dog-facts.git
 
 Open index.html in your web browser.
 
+**Github hosted site link**
+
+clink the link below to view the deployed website.
+
+https://markswell-crypto.github.io/phase-1-project-dog-facts/
+
 ### Usage
 1 Select a Breed: Click on a breed in the list on the left side of the page.
 
@@ -55,9 +57,6 @@ This project uses a public API
 
 https://dogapi.dog/api/v2/breeds?page[number]=1
 
-
-### Contributing
-Any contributions you make are greatly appreciated.
 
 
 ### License

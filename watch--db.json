@@ -8,13 +8,12 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "text": "I like the caucasian fact!",
+      "id": 3
     },
     {
-      "text": "Hello...",
-      "id": 2
+      "text": "Hello",
+      "id": 4
     }
   ],
   "profile": {
